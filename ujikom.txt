@@ -1,0 +1,121 @@
+==============================================
+Kamis, 02 Februari 2023
+
+1. INSTALL COMPOSER
+   - download getcomposer.org. browse : c:composer > next, kosong > c:xampp/php/php.exe
+
+2. INSTALL GIT BASH
+   - 
+
+3. BUKA GITHUB DI KOMPUTER TANPA MASUK EMAIL DAN PASSWORD
+   - buka github
+   - settings > ssh and GPG keys
+   - buka cmd > ssh-keygen > enter > overwrite? Y> enter > buak file explorer > C:\Users\LAB3PC08\.ssh > id_rsa.pub > open with notepad
+   - new ssh > isi title > masukan key yang di notepad
+
+ssh key :
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDcmyk9pXwD6N7gQ2kWcEXGuqz2J1vTUGrgMXMlyHTMfcRH1Vdd3aXVQgDTvgI7VY52QvlgrzQisudFB2cSNyZad4N7oMZL1GhNI3f35ivf6oGY49pT3CuE/C7WmxrZWfTaPkFbHeboHUlOBvX5Angj7c3+ZP7bGjXvAx61ctxPIIiK3gyjMhEzdmOl8Y3er9ELYO3sAhdONqsbl/qICY0vqvVVfKNanolz1h8r83UaKxFZs+0j2A03W6W2W6sMY3CbvP2BR+v9OO6yffIzBBebmWUdkqroPCcZoEk+rRJaePjcTCxBm+fDNmkKaZ5TQUUp2nldpJXjLcJFsZgY7t05jCPTuBw6pbcl+WuXTBWTMaspvOXgNugFFIw8qtPOn4lwxv/37bAEq1SW0I41sLGJQNUxzPynmk3MsbVfmbmhkGkbWuYx7Z1kZXyltzW4rEZO3LZjiOVfC5U4Usj6n7sn3a9c/4f5TNfHOGTHHmL0rsw6xJ29LxNhTvrlN+NAvk8= lab3pc08@DESKTOP-7TMT1BB
+
+4. MEMBUAT FOLDER
+   - c/xampp/htdocs > cmd > composer create-project --prefer-dist laravel/laravel ujikomfny > enter
+
+5. BUAT REPOSITORY
+   - buka github > klik icon profil > your repository > new > create repository
+
+6. BUKA FOLDER YANG SUDAH DICOMPOSER DI VSCODE
+7. MASUKKAN DB
+   - buka xampp
+   - buka di web http://localhost/phpmyadmin/
+   - new db = ujikomfny
+   - buka .env di vscode, ganti DB_DATABASE=ujikomfny
+
+8. CEK SERVER
+   - buka folder > cmd > php artisan serve
+   - jalankan server di web
+
+9. - buka vscode > database > migration > user table copy > rename petugas > user ganti jadi petugas
+   - $table-> id(); ganti >  $table->integerIncrements('id_petugas');
+            $table->string('nama_petugas');
+            $table->string('username')->unique();
+            $table->string('password');
+            $table->integer('id_level');
+            $table->timestamps();
+
+10. Routes > web.php > copykan yang di tutsmake
+
+11. terminal > php artisan make:controller CustomAuthController
+
+12. app > http > controller > customauthcontroller > copy yang di github a haisyam
+
+13. membuat untuk FE > views > auth&layouts&dashboard.blade.php
+    - auth = login.blade.php, register.blade.php
+    - layouts = app.blade.php, footer, header, sidebar
+
+
+==============================================
+Rabu, 8 Februari 2023
+
+1. CLONING PROJECT DI GITHUB
+masuk github > code > ssh > copy urlcmd
+masuk htdocs > cmd > git clone (url) (nama folder) > cd (nama folder) > composer update/composer instal > running laravel dengan php artisan serve > buka script codingan > copy paste file .env.example > ubah menjadi .env > ubah nama db_database > php artisan key:generate
+
+config > app.php > 'production' ubah jadi 'development' :
+'env' => env('APP_ENV', 'production'), gentos  'env' => env('APP_ENV', 'development'),
+
+2. MEMBUAT DATABASE PENUMPANG
+   - php artisan make:migration
+   - masukan field-field
+   - php artisan migrate
+   *jika ada yang salah maka hapus(drop) seluruh tabel kemudian migrate kembali
+   *jika salah satu tabel saja maka buka tabel migration > pilih tabel yang akan dihapus > hapus > migrate
+
+- untuk mengetahui komputer sudah ada yang remote git atau belum : 
+git remote -v
+- untuk menghapus : git remote remove origin
+
+==============================================
+
+1. CLONING
+   - dari github melalui SSH
+   - copy .env
+   - composer update
+   - php artisan key:generate
+   - create db di phpmyadmin
+   - setting .env connect db
+   - php artisan migrate
+   - pastikan database kosong (tidak ada tabel)
+   - php artisan db:seed --class=PetugasSeeder
+   - php artisan serve
+
+level : membuat GlobalModel dan LevelModel, kemudian isi data di database level phpmyadmin
+
+==============================================
+09 Februari 2023
+
+CARA MEMBUAT DOKUMENTASI
+1. disusun berdasarkan level user (pisahkan menjadi 3 tabel)
+   - yang pertama penumpang > petugas > admin
+   - admin jangan dibuat tutorial semua karena ada beberapa menu yang sama dengan penumpang dan petugas = "akses ini sama dengan petugas/penumpang"
+
+2. jangan terlalu detail
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

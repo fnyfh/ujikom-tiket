@@ -54,28 +54,37 @@
                             <h3>REGISTRATION</h3>
                         </div>
                         <form id="formAuthentication" class="mb-3" action="{{ route('register.custom') }}" method="POST">
+                            @csrf
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingText" placeholder="nama petugas">
-                                <label for="nama_petugas">Nama Lengkap</label>
+                                <input type="text" class="form-control" id="nama_penumpang" name='nama_penumpang' placeholder="Nama Lengkap">
+                                <label for="nama_penumpang">Nama Lengkap</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="username">
+                                <input type="text" class="form-control" id="username" name="username" placeholder="username">
                                 <label for="username">Username</label>
                             </div>
                             <div class="form-floating mb-4">
-                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                                 <label for="password">Password</label>
                             </div>
                             <div class="form-floating mb-4">
-                                <label for="id_level" class="form-label">Level</label>
-                                <div class="input-group input group-merge">
-                                    <select id="level" class="form-control" name="level">
-                                        <option value="">...</option>
-                                        <option value="0">Petugas</option>
-                                        <option value="1">Penumpang</option>
-                                    </select>
-                                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                                </div>
+                                <textarea name="alamat_penumpang" id="alamat_penumpang" class="form-control" cols="30" rows="3" placeholder="Alamat Lengkap"></textarea>
+                                <label for="alamat_penumpang">Alamat Lengkap</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" placeholder="Tanggal Lahir">
+                                <label for="tanggal_lahir">Tanggal Lahir</label>
+                            </div>
+                            <div class="form-group mb-4">
+                                <select name="jenis_kelamin" id="jenis_kelamin" class="form-select">
+                                    <option value="">Jenis Kelamin</option>
+                                    <option value="Laki-Laki">Laki-Laki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                </select>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input type="text" class="form-control" name="telepon" id="telepon" placeholder="Telepon">
+                                <label for="telepon">Telepon</label>
                             </div>
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <div class="form-check">
@@ -86,7 +95,7 @@
                             </div>
                             <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign Up</button>
                         </form>
-                        <p class="text-center mb-0">Already have an Account? <a href="">Sign In</a></p>
+                        <p class="text-center mb-0">Already have an Account? <a href="{{ route('login') }}">Sign In</a></p>
                     </div>
                 </div>
             </div>

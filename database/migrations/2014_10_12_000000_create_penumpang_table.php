@@ -14,14 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('penumpang', function (Blueprint $table) {
-            $table->integerIncrements('id_penumpang');
+            $table->id('id_penumpang');
             $table->string('nama_penumpang');
             $table->string('alamat_penumpang');
-            $table->string('tanggal_lahir');
+            $table->date('tanggal_lahir');
             $table->string('jenis_kelamin');
             $table->string('username')->unique();
             $table->string('password');
-            $table->integer('telepon');
+            $table->string('telepon');
             $table->timestamps();
         });
     }
